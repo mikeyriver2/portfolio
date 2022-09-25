@@ -1,0 +1,29 @@
+.customCurve {
+  &.custom-shape-divider-bottom-1664115935 {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  &.custom-shape-divider-bottom-1664115935 svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 150px;
+  }
+
+  &.custom-shape-divider-bottom-1664115935 .shape-fill {
+      fill: #F4FCFF;
+  }
+
+  /** For mobile devices **/
+  @media (max-width: 767px) {
+      &.custom-shape-divider-bottom-1664115935 svg {
+          width: calc(100% + 1.3px);
+          height: 81px;
+      }
+  }
+}
