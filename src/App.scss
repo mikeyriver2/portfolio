@@ -1,4 +1,15 @@
 @import './reusables/CustomCurve.scss';
+@import './mixins.scss';
+
+@font-face {
+  font-family: Space-Mono-Bold;
+  src: url('./assets/fonts/space-mono/SpaceMono-Bold.ttf');
+}
+
+@font-face {
+  font-family: Space-Grotesk-Regular;
+  src: url('./assets/fonts/space-grotesk/static/SpaceGrotesk-Regular.ttf');
+}
 
 $lightBlue: #F4FCFF;
 $skyBlue: #88B2FF;
@@ -10,9 +21,92 @@ $green: #52A435;
   min-height: 100vh;
 
   section { 
+    @include flex-column-cAlign-cJustify;
     min-height: 80vh;
-    svg {
+    & > svg {
       width: 100%;
+    }
+  }
+
+  h1 {
+    color: $headerBlue;
+    font-size: 3em;
+    text-align: center;
+    font-family: Space-Mono-Bold;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Space-Mono-Bold;
+  }
+
+  p {
+    font-family: Space-Grotesk-Regular;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  
+  &__nav {
+    & > div {
+      @include container-padding;
+      &:first-of-type {
+        height: 100vh;
+
+        @include flex-cAlign;
+        flex-direction: column;
+
+        // scroll down svg
+        & > svg {
+          width: 60%;
+          height: auto;
+          position: absolute;
+          bottom: 30px;
+        }
+      }
+      &:nth-of-type(2) {
+        text-align: center;
+        h2 {
+          width: 60vw;
+          margin: auto;
+          line-height: 47px;
+          font-size: 32px;
+        }
+        p {
+          margin-top: 30px;
+        }
+      }
+    }
+
+    &__dog {
+      & > svg:first-of-type {
+        transform: translate(53px, 29px);
+      }
+      @include flex-cJustify-cAlign;
+      flex-direction: column;
+    }
+    ul {
+      list-style: none;
+      text-align: center;
+      padding: 0px;
+      margin: 0px;
+
+      li {
+        &:not(:first-of-type) {
+          margin-top: 55px;
+        }
+        text-decoration: underline;
+        color: $green;
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+    }
+
+    &__dp {
+      width: 180px;
+      height: 180px;
+      background-size: cover !important;
+      border-radius: 50%;
+      margin: 5vh auto 2vh auto;
+      border: 5px #AFB1B6 solid;
     }
   }
 
@@ -24,7 +118,8 @@ $green: #52A435;
     position: relative;
     background: linear-gradient(180deg, #1A1A21 0%, #313063 100%);
 
-    svg {
+    &__divider {
+      width: 100%;
       position: absolute;
       top: -100px;
     }
