@@ -1,6 +1,3 @@
-@import './reusables/CustomCurve.scss';
-@import './mixins.scss';
-
 @font-face {
   font-family: Space-Mono-Bold;
   src: url('./assets/fonts/space-mono/SpaceMono-Bold.ttf');
@@ -16,12 +13,16 @@ $skyBlue: #88B2FF;
 $headerBlue: #2081C3;
 $green: #52A435;
 
+@import './mixins.scss';
+@import './reusables/CustomCurve/customCurve.scss';
+@import './reusables/CustomButton/customButton.scss';
+
 .mikeyriver {
   background: $lightBlue;
   min-height: 100vh;
 
   section { 
-    @include flex-column-cAlign-cJustify;
+    text-align: center;
     min-height: 80vh;
     & > svg {
       width: 100%;
@@ -112,21 +113,38 @@ $green: #52A435;
 
   &__basic {
     background: linear-gradient(180deg, $lightBlue 0%, $skyBlue 100%);
+    padding: 30px 0px 155px 0px;
+
+    & > div {
+      @include img-p-container;
+    }
   }
 
   &__music {
     position: relative;
     background: linear-gradient(180deg, #1A1A21 0%, #313063 100%);
+    padding: 150px 0px 115px 0px;
 
     &__divider {
       width: 100%;
       position: absolute;
       top: -100px;
+      left: 0px;
+    }
+
+    & > div {
+      @include img-p-container;
+      h1 {
+        color: white;
+        margin-bottom: 10px;
+      }
+      color: white;
     }
   }
 
   &__resume {
     position: relative;
+    @include container-padding
   }
 
   &__form {

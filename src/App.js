@@ -3,10 +3,14 @@ import { ReactComponent as Solo } from './assets/images/Dog.svg';
 import { ReactComponent as SoloText } from './assets/images/ImSolo.svg'; 
 import { ReactComponent as ScrollDown } from './assets/images/ScrollDown.svg'; 
 
+import Download from './assets/images/Download.svg';
+import Trumpet from './assets/images/Trumpet.png';
 import Curve from './assets/images/Curve.svg';
+import Block from './assets/images/Block.png';
 import DP from './assets/images/DP.jpg';
 
-import CustomCurve from './reusables/CustomCurve';
+import CustomButton from './reusables/CustomButton/CustomButton';
+import CustomCurve from './reusables/CustomCurve/CustomCurve';
 
 import './App.scss';
 
@@ -40,16 +44,46 @@ function App() {
       </section>
       <section className="mikeyriver__basic">
         <Cloud />
+        <div>
+            <img src={Block} />
+            <h1>IT BEGAN WITH MINECRAFT</h1>
+            <p>
+              Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+            </p>
+            <p>
+              Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+            </p>
+        </div>
   
       </section>
       <section className="mikeyriver__music">
         {/** Dunno why but cannot import this particular svg file as SVG component */}
         <img className="mikeyriver__music__divider" src={Curve} />
 
+        <div>
+            <img src={Trumpet} />
+            <h1>PASSION FOR MUSIC</h1>
+            <h2>
+              I have a taste for tito tunes
+            </h2>
+            <p>
+              Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+            </p>
+        </div>
       </section>
       <section className="mikeyriver__resume">
         <CustomCurve />
+        <h1>MY RESUME AND PORTFOLIO</h1>
+        <p>
+          Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+        </p>
+        <CustomButton
+          image={Download}
+        >
+          RESUME
+        </CustomButton>
 
+        <h2>Some of my works</h2>
       </section>
       <section className="mikeyriver__form">
         

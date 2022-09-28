@@ -28,6 +28,20 @@
   padding: 0px 20px;
 }
 
+@mixin img-p-container {
+  @include container-padding;
+  text-align: center;
+  h1 {
+    font-weight: 700;
+    line-height: 48px;
+    color: black;
+    margin-top: 5px;
+  }
+  img {
+    max-width: 208px;
+  }
+}
+
 @mixin flex-cAlign {
   display: flex;
   align-items: center;
