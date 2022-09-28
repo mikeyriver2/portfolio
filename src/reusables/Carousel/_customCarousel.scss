@@ -1,0 +1,23 @@
+.customCarousel {
+  width: 100%;
+  &__item {
+    &__img {
+      width: 100%;
+      height: 180px;
+      background-size: cover !important;
+    }
+    p {
+      margin-bottom: 35px;
+    }
+    padding-bottom: 65px;
+  }
+  .dot {
+    &.selected {
+      background: $skyBlue !important;
+    }
+    width: 24px !important;
+    height: 24px !important;
+    background: black !important;
+    margin: 0 18px !important;
+  }
+}

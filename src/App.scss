@@ -14,8 +14,11 @@ $headerBlue: #2081C3;
 $green: #52A435;
 
 @import './mixins.scss';
-@import './reusables/CustomCurve/customCurve.scss';
+
 @import './reusables/CustomButton/customButton.scss';
+@import './reusables/CustomCurve/customCurve.scss';
+@import './reusables/Carousel/customCarousel.scss';
+@import './reusables/Form/customForm.scss';
 
 .mikeyriver {
   background: $lightBlue;
@@ -144,10 +147,21 @@ $green: #52A435;
 
   &__resume {
     position: relative;
-    @include container-padding
+    @include container-padding;
+
+    & > h1 {
+      margin-top: 10px;
+    }
+
+    & > h2 {
+      font-weight: 700;
+      font-size: 32px;
+      margin-top: 80px;
+    }
   }
 
   &__form {
+    padding: 1px 20px 100px 20px;
     background: #1A1A21;
   }
 }

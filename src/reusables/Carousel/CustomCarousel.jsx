@@ -1,14 +1,39 @@
-
 import React from 'react';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import PropTypes from 'prop-types';
 
+import Link from '../../assets/images/Link.svg'
+
+import CustomButton from '../CustomButton/CustomButton';
+
+const sampleImg = "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGljfGVufDB8fDB8fA%3D%3D&w=1000&q=80";
+
 const CustomCarousel = props => {
 	return (
-		<div>
-			
+		<div className="customCarousel">
+			<Carousel>
+				{
+					Array(5).fill().map(() => (
+						<div className="customCarousel__item">
+							<div
+								className="customCarousel__item__img"
+								style={{
+									background: `url(${sampleImg})`
+								}}
+							/>
+							<h3>This is one project</h3>
+							<p>This project was about eating poo poo platters for lunch breakfast and dinner lololol. Fuck SHopee man I hate it</p>
+							<CustomButton
+								image={Link}
+							>
+								View Demo
+							</CustomButton>
+						</div>
+					))
+				}
+			</Carousel>
 		</div>
 	);
 };

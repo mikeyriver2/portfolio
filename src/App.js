@@ -11,6 +11,8 @@ import DP from './assets/images/DP.jpg';
 
 import CustomButton from './reusables/CustomButton/CustomButton';
 import CustomCurve from './reusables/CustomCurve/CustomCurve';
+import CustomCarousel from './reusables/Carousel/CustomCarousel';
+import CustomForm from './reusables/Form/CustomForm';
 
 import './App.scss';
 
@@ -84,9 +86,11 @@ function App() {
         </CustomButton>
 
         <h2>Some of my works</h2>
+
+        <CustomCarousel />
       </section>
       <section className="mikeyriver__form">
-        
+        <CustomForm />
       </section>
     </div>
   );
