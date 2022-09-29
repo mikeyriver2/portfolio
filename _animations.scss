@@ -1,0 +1,33 @@
+.mikeyriver__nav {
+    transition: all .2s ease;
+    opacity: 0;
+    
+    ul li {
+        &:nth-child(1) {
+            transform: translateY(-100px);
+            transition: transform, .2s ease;
+        }
+        &:nth-child(2) {
+            transform: translateY(-100px);
+            transition: transform .25s ease;
+        }
+        &:nth-child(3) {
+            transform: translateY(-100px);
+            transition: transform, .30s ease;
+        }
+        
+        transition: opacity .1s ease;
+        opacity: 0;
+    }
+
+    &__animation {
+        &-enter-done {
+            opacity: 1;
+            ul li {
+                transform: translateY(0px) !important;
+                opacity: 1;
+            }
+        }
+
+    }
+}

@@ -1,3 +1,6 @@
+import React, { useEffect, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
+
 import { ReactComponent as Cloud } from './assets/images/Cloud.svg';
 import { ReactComponent as Solo } from './assets/images/Dog.svg'; 
 import { ReactComponent as SoloText } from './assets/images/ImSolo.svg'; 
@@ -14,36 +17,73 @@ import CustomCurve from './reusables/CustomCurve/CustomCurve';
 import CustomCarousel from './reusables/Carousel/CustomCarousel';
 import CustomForm from './reusables/Form/CustomForm';
 
+import { visibilityHandler as handler } from './helper';
 import './App.scss';
 
+
 function App() {
+  const [domVisibility, setDomVisibility] = useState({
+    nav: false,
+  });
+
+  const handleVisibility = async (e) => {
+    const visibilities = await handler(e);
+    console.log(visibilities);
+    setDomVisibility(visibilities);
+  };
+
+  // useEffect(() => {
+  //   console.log(domVisibility);
+  // }, [domVisibility])
+  useEffect(() => {
+    const { addEventListener, attachEvent } = window;
+    // add listener for window
+    if (addEventListener) {
+      addEventListener('DOMContentLoaded', handleVisibility, false);
+      addEventListener('load', handleVisibility, false);
+      addEventListener('scroll', handleVisibility, false);
+      addEventListener('resize', handleVisibility, false);
+  } else if (window.attachEvent)  {
+      attachEvent('onDOMContentLoaded', handleVisibility); // Internet Explorer 9+ :(
+      attachEvent('onload', handleVisibility);
+      attachEvent('onscroll', handleVisibility);
+      attachEvent('onresize', handleVisibility);
+  }
+  }, []);
+
   return (
     <div className="mikeyriver">
-      <section className="mikeyriver__nav">
-        <div>
-          <div className="mikeyriver__nav__dog">
-            <SoloText />
-            <Solo />
+      <CSSTransition
+        in={domVisibility.nav}
+        classNames="mikeyriver__nav__animation"
+        timeout={300}
+      >
+        <section className="mikeyriver__nav">
+          <div>
+            <div className="mikeyriver__nav__dog">
+              <SoloText />
+              <Solo />
+            </div>
+            <h1>MIKEY RIVERA</h1>
+            <ul> 
+              <li>About Me</li>
+              <li>My Resume</li>
+              <li>Contact Me</li>
+            </ul>
+            <ScrollDown />
           </div>
-          <h1>MIKEY RIVERA</h1>
-          <ul> 
-            <li>About Me</li>
-            <li>My Resume</li>
-            <li>Contact Me</li>
-          </ul>
-          <ScrollDown />
-        </div>
-        <div>
-          <div
-            className="mikeyriver__nav__dp"
-            style={{
-              background: `url('${DP}')`
-            }}
-          />
-          <h2>Hello! Thank you for stopping by</h2>
-          <p>Mauris non arcu tellus etiam vivamus augue magna nunc, rhoncus. Mauris odio massa quis vitae urna tincidunt vel. Risus eget nibh quis sit nascetur nisi.</p>
-        </div>
-      </section>
+          <div>
+            <div
+              className="mikeyriver__nav__dp"
+              style={{
+                background: `url('${DP}')`
+              }}
+            />
+            <h2>Hello! Thank you for stopping by</h2>
+            <p>Mauris non arcu tellus etiam vivamus augue magna nunc, rhoncus. Mauris odio massa quis vitae urna tincidunt vel. Risus eget nibh quis sit nascetur nisi.</p>
+          </div>
+        </section>
+      </CSSTransition>
       <section className="mikeyriver__basic">
         <Cloud />
         <div>
