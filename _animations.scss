@@ -31,3 +31,36 @@
 
     }
 }
+
+.mikeyriver__basic {
+    @include basic-odd-even-transition;
+    
+    svg {
+        transform: translateX(0) !important;
+        transform: translatey(-220px) !important;
+    }
+    // override some animations
+    &__animation {
+        &-enter-done {
+            :nth-child(odd), :nth-child(even) {
+                transform: translateX(0) !important;
+                opacity: 1 !important;
+            }
+        }
+    }
+}
+
+
+.mikeyriver__music {
+    @include basic-odd-even-transition;
+}
+
+.mikeyriver__resume {
+    @include basic-odd-even-transition;
+
+    // do not allow these to animate
+    .customCurve, .customCurve svg {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+    }
+}

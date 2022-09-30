@@ -24,7 +24,8 @@ $green: #52A435;
 .mikeyriver {
   background: $lightBlue;
   min-height: 100vh;
-
+  overflow: hidden;
+  
   section { 
     text-align: center;
     min-height: 80vh;

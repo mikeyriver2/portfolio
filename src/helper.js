@@ -1,8 +1,19 @@
 export async function visibilityHandler(e) {
-    const nav = document.querySelector('.mikeyriver__nav');
-    const navIsVisible = await isElementInViewport(nav);
+    const navDom = document.querySelector('.mikeyriver__nav');
+    const basicDom = document.querySelector('.mikeyriver__basic');
+    const musicDom = document.querySelector('.mikeyriver__music');
+    const resumeDom = document.querySelector('.mikeyriver__resume');
+
+    const nav = await isElementInViewport(navDom);
+    const basic = await isElementInViewport(basicDom);
+    const music = await isElementInViewport(musicDom);
+    const resume = await isElementInViewport(resumeDom);
+
     return {
-        nav: navIsVisible
+        nav,
+        basic,
+        music,
+        resume
     }
 }
 

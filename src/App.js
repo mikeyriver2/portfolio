@@ -24,19 +24,20 @@ import './App.scss';
 function App() {
   const [domVisibility, setDomVisibility] = useState({
     nav: false,
+    basic: false,
+    music: false,
+    resume: false,
+    form: false,
   });
 
   const handleVisibility = async (e) => {
     const visibilities = await handler(e);
-    console.log(visibilities);
     setDomVisibility(visibilities);
   };
 
-  // useEffect(() => {
-  //   console.log(domVisibility);
-  // }, [domVisibility])
   useEffect(() => {
     const { addEventListener, attachEvent } = window;
+  
     // add listener for window
     if (addEventListener) {
       addEventListener('DOMContentLoaded', handleVisibility, false);
@@ -84,51 +85,68 @@ function App() {
           </div>
         </section>
       </CSSTransition>
-      <section className="mikeyriver__basic">
-        <Cloud />
-        <div>
-            <img src={Block} />
-            <h1>IT BEGAN WITH MINECRAFT</h1>
-            <p>
-              Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
-            </p>
-            <p>
-              Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
-            </p>
-        </div>
-  
-      </section>
-      <section className="mikeyriver__music">
-        {/** Dunno why but cannot import this particular svg file as SVG component */}
-        <img className="mikeyriver__music__divider" src={Curve} />
+      <CSSTransition
+        in={domVisibility.basic}
+        classNames="mikeyriver__basic__animation"
+      >
+        <section className="mikeyriver__basic">
+          <Cloud />
+          <div>
+              <img src={Block} />
+              <h1>IT BEGAN WITH MINECRAFT</h1>
+              <p>
+                Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+              </p>
+              <p>
+                Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+              </p>
+          </div>
+    
+        </section>
+      </CSSTransition>
+      <CSSTransition
+        in={domVisibility.music}
+        classNames="mikeyriver__music__animation"
+        timeout={300}
+      >
+        <section className="mikeyriver__music">
+          {/** Dunno why but cannot import this particular svg file as SVG component */}
+          <img className="mikeyriver__music__divider" src={Curve} />
 
-        <div>
-            <img src={Trumpet} />
-            <h1>PASSION FOR MUSIC</h1>
-            <h2>
-              I have a taste for tito tunes
-            </h2>
-            <p>
-              Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
-            </p>
-        </div>
-      </section>
-      <section className="mikeyriver__resume">
-        <CustomCurve />
-        <h1>MY RESUME AND PORTFOLIO</h1>
-        <p>
-          Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
-        </p>
-        <CustomButton
-          image={Download}
-        >
-          RESUME
-        </CustomButton>
+          <div>
+              <img src={Trumpet} />
+              <h1>PASSION FOR MUSIC</h1>
+              <h2>
+                I have a taste for tito tunes
+              </h2>
+              <p>
+                Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+              </p>
+          </div>
+        </section>
+      </CSSTransition>
+      <CSSTransition
+        in={domVisibility.resume}
+        classNames="mikeyriver__resume__animation"
+        timeout={300}
+      >
+        <section className="mikeyriver__resume">
+          <CustomCurve />
+          <h1>MY RESUME AND PORTFOLIO</h1>
+          <p>
+            Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+          </p>
+          <CustomButton
+            image={Download}
+          >
+            RESUME
+          </CustomButton>
 
-        <h2>Some of my works</h2>
+          <h2>Some of my works</h2>
 
-        <CustomCarousel />
-      </section>
+          <CustomCarousel />
+        </section>
+      </CSSTransition>
       <section className="mikeyriver__form">
         <CustomForm />
       </section>

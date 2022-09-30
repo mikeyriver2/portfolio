@@ -51,3 +51,37 @@
   display: flex;
   justify-content: center;
 }
+
+@mixin basic-odd-even-transition {
+  & > :nth-child(odd):not(& > div):not(&__divider)
+  {
+    transform: translateX(-110vw);
+    opacity: 0;
+    transition: transform .5s ease, opacity .2s ease;
+  }
+  & > :nth-child(even):not(& > div) {
+      transform: translateX(110vw);
+      opacity: 0;
+      transition: transform .5s ease, opacity 1.2s ease;
+  }
+
+  & > div > :nth-child(odd) {
+    transform: translateX(-110vw);
+    opacity: 0;
+    transition: transform .5s ease, opacity .2s ease;
+  }
+  & > div > :nth-child(even) {
+      transform: translateX(110vw);
+      opacity: 0;
+      transition: transform .5s ease, opacity 1.2s ease;
+  }
+
+  &__animation {
+      &-enter-done {
+          :nth-child(odd), :nth-child(even) {
+              transform: translateX(0) !important;
+              opacity: 1 !important;
+          }
+      }
+  }
+}
