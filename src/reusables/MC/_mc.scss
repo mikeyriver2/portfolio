@@ -1,0 +1,33 @@
+.mc {
+	position: absolute;
+	transform: none !important;
+	// 540 = 500 maxwidth + 20 padding L + 20 padding R
+	left: $leftOffset;
+	max-width: unset;
+	width: 100vw;
+
+	img {
+		position: absolute;
+	}
+
+	&__tree {
+		left: -170px;
+    height: 450px;
+		top: -345px;
+    z-index: 1;
+    width: auto;
+    max-width: unset !important;
+	}
+
+	&__tree2 {
+		@extend .mc__tree;
+		left: unset;
+		right: -170px;
+	}
+
+	&__grass {
+		width: 100vw;
+		max-width: unset !important;
+		left: 0px;
+	}
+}

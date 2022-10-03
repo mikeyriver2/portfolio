@@ -20,4 +20,16 @@
     background: black !important;
     margin: 0 18px !important;
   }
+
+  @media(min-width: $maxMobileWidth) {
+    &__item {
+      padding: 0px 10px;
+    }
+    .carousel-slider {
+      min-height: 530px;
+    }
+    position: absolute;
+    width: 100vw;
+    left: $leftOffset;
+  }
 }

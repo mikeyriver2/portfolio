@@ -1,9 +1,9 @@
 .customCurve {
   &.custom-shape-divider-bottom-1664115935 {
     position: absolute;
-    top: -90px;
-    left: 0;
-    width: 100%;
+    top: -159px;
+    left: $leftOffset;
+    width: 100vw;
     overflow: hidden;
     line-height: 0;
   }
@@ -20,10 +20,15 @@
   }
 
   /** For mobile devices **/
-  @media (max-width: 767px) {
-      &.custom-shape-divider-bottom-1664115935 svg {
-          width: calc(100% + 1.3px);
-          height: 81px;
-      }
+  @media (max-width: $maxMobileWidth) {
+    &.custom-shape-divider-bottom-1664115935 {
+      left: 0px;
+      top: -90px;
+    }
+
+    &.custom-shape-divider-bottom-1664115935 svg {
+      width: calc(100% + 1.3px);
+      height: 81px;
+    }
   }
 }

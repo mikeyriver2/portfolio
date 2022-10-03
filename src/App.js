@@ -5,10 +5,12 @@ import { ReactComponent as Cloud } from './assets/images/Cloud.svg';
 import { ReactComponent as Solo } from './assets/images/Dog.svg'; 
 import { ReactComponent as SoloText } from './assets/images/ImSolo.svg'; 
 import { ReactComponent as ScrollDown } from './assets/images/ScrollDown.svg'; 
+import { ReactComponent as CloudTablet } from './assets/images/Cloud_Tablet.svg';
 
 import Download from './assets/images/Download.svg';
 import Trumpet from './assets/images/Trumpet.png';
 import Curve from './assets/images/Curve.svg';
+import CurveTablet from './assets/images/Curve_Tablet.svg';
 import Block from './assets/images/Block.png';
 import DP from './assets/images/DP.jpg';
 
@@ -16,8 +18,12 @@ import CustomButton from './reusables/CustomButton/CustomButton';
 import CustomCurve from './reusables/CustomCurve/CustomCurve';
 import CustomCarousel from './reusables/Carousel/CustomCarousel';
 import CustomForm from './reusables/Form/CustomForm';
+import Mc from './reusables/MC/Mc';
 
-import { visibilityHandler as handler } from './helper';
+import {
+  visibilityHandler as handler,
+  checkIfMobile
+} from './helper';
 import './App.scss';
 
 
@@ -90,7 +96,7 @@ function App() {
         classNames="mikeyriver__basic__animation"
       >
         <section className="mikeyriver__basic">
-          <Cloud />
+          { checkIfMobile() ? <Cloud /> : <CloudTablet /> }
           <div>
               <img src={Block} />
               <h1>IT BEGAN WITH MINECRAFT</h1>
@@ -100,8 +106,8 @@ function App() {
               <p>
                 Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
               </p>
+              { !checkIfMobile() && <Mc /> }
           </div>
-    
         </section>
       </CSSTransition>
       <CSSTransition
@@ -111,8 +117,10 @@ function App() {
       >
         <section className="mikeyriver__music">
           {/** Dunno why but cannot import this particular svg file as SVG component */}
-          <img className="mikeyriver__music__divider" src={Curve} />
-
+          <img
+            className="mikeyriver__music__divider"
+            src={checkIfMobile() ? Curve : CurveTablet} 
+          />
           <div>
               <img src={Trumpet} />
               <h1>PASSION FOR MUSIC</h1>
@@ -144,7 +152,9 @@ function App() {
 
           <h2>Some of my works</h2>
 
-          <CustomCarousel />
+          <CustomCarousel
+            isMobile={checkIfMobile()}
+          />
         </section>
       </CSSTransition>
       <section className="mikeyriver__form">

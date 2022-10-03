@@ -26,6 +26,11 @@
 
 @mixin container-padding {
   padding: 0px 20px;
+  
+  @media(min-width: $maxMobileWidth) {
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }
 
 @mixin img-p-container {
@@ -78,7 +83,7 @@
 
   &__animation {
       &-enter-done {
-          :nth-child(odd), :nth-child(even) {
+          :nth-child(odd):not(.carousel-slider *), :nth-child(even):not(.carousel-slider *) {
               transform: translateX(0) !important;
               opacity: 1 !important;
           }
