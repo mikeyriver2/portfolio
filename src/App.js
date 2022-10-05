@@ -77,7 +77,7 @@ function App() {
               <li>My Resume</li>
               <li>Contact Me</li>
             </ul>
-            <ScrollDown />
+            { checkIfMobile() && <ScrollDown /> }
           </div>
           <div>
             <div
@@ -89,6 +89,7 @@ function App() {
             <h2>Hello! Thank you for stopping by</h2>
             <p>Mauris non arcu tellus etiam vivamus augue magna nunc, rhoncus. Mauris odio massa quis vitae urna tincidunt vel. Risus eget nibh quis sit nascetur nisi.</p>
           </div>
+          { !checkIfMobile() && <ScrollDown /> }
         </section>
       </CSSTransition>
       <CSSTransition

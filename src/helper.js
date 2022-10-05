@@ -2,7 +2,7 @@ export function checkIfMobile() {
     const { innerWidth, innerHeight } = window;
 
     // anything considered bigger than this will be tablet and greater
-    return innerWidth <= 540 && innerHeight < 1000; // && innerWidth <= 820;
+    return innerWidth <= 490 && innerHeight < 1024; // && innerWidth <= 820;
 }
 
 export async function visibilityHandler(e) {

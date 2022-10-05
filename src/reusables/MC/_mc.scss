@@ -30,4 +30,8 @@
 		max-width: unset !important;
 		left: 0px;
 	}
+
+	@media(min-width: $maxMobileWidth) {
+		left: $leftOffsetNonMobile;
+	}
 }
