@@ -42,7 +42,9 @@
     // override some animations
     &__animation {
         &-enter-done {
-            :nth-child(odd), :nth-child(even) {
+            // transform of trees manually set in mc.scss
+            :nth-child(odd):not(.mc__tree2):not(.mc__tree),
+            :nth-child(even):not(.mc__tree2):not(.mc__tree) {
                 transform: translateX(0) !important;
                 opacity: 1 !important;
             }

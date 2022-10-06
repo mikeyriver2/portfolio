@@ -19,7 +19,11 @@ $maxTabletWidth: 840px;
 // 60vw max width of container + 40px from padding
 $leftOffset: calc(-1*(100vw - (60vw + 40px))/2);
 
+// tablets
 $leftOffsetNonMobile: calc(-1*(100vw - (480px + 40px))/2);
+
+// desktop
+$leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
 
 
 @import './mixins.scss';
@@ -29,6 +33,7 @@ $leftOffsetNonMobile: calc(-1*(100vw - (480px + 40px))/2);
 @import './reusables/CustomCurve/customCurve.scss';
 @import './reusables/Carousel/customCarousel.scss';
 @import './reusables/Form/customForm.scss';
+@import './reusables/Clouds/clouds.scss';
 @import './reusables/Mc/mc.scss';
 
 .mikeyriver {
@@ -149,6 +154,10 @@ $leftOffsetNonMobile: calc(-1*(100vw - (480px + 40px))/2);
       left: 0px;
     }
 
+    &__bloop {
+      display: none;
+    }
+
     & > div {
       @include img-p-container;
       h1 {
@@ -196,6 +205,7 @@ $leftOffsetNonMobile: calc(-1*(100vw - (480px + 40px))/2);
     }
 
     &__basic {
+      position: relative;
       & > div {
         p { padding: 0px 5vw; }
       }
@@ -206,6 +216,61 @@ $leftOffsetNonMobile: calc(-1*(100vw - (480px + 40px))/2);
       .customForm {
         max-width: 550px;
         margin: 0 auto;
+      }
+    }
+  }
+
+  // desktop
+  @media(min-width: $maxTabletWidth) {
+    max-width: 1920px;
+    &__nav {
+      svg:last-of-type {
+        width: 230px !important;
+        margin-top: 20px;
+      }
+      ul {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        li {
+          margin-top: 0px !important;
+          margin-right: 0px;
+        }
+      }
+      & > div:nth-of-type(2) {
+        @include flex-cAlign-cJustify;
+        justify-content: space-between;
+        margin-top: 70px;
+        & > div:first-of-type {
+          margin: 0px;
+        }
+        & > div:nth-of-type(2) {
+          width: 60%;
+          text-align: left;
+        }
+      }
+    }
+
+    &__basic {
+      min-height: 1030px !important;
+      position: relative;
+    }
+
+    &__music {
+      position: relative;
+      &__bloop {
+        position: absolute;
+        display: block;
+        &:nth-of-type(2) {
+          bottom: 0px;
+          right: 0px;
+        }
+        &:nth-of-type(3) {
+          
+        }
+      }
+      &__divider {
+        top: -80px;
       }
     }
   }

@@ -17,6 +17,8 @@
     z-index: 1;
     width: auto;
     max-width: unset !important;
+		transform: translateX(0) !important;
+    opacity: 1 !important;
 	}
 
 	&__tree2 {
@@ -33,5 +35,57 @@
 
 	@media(min-width: $maxMobileWidth) {
 		left: $leftOffsetNonMobile;
+		width: 100%;
+		max-width: unset !important;
+		height: 100%;
+		left: 0px;
+		top: 0px;
+
+		&__tree {
+			top: unset;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			margin: 0px auto;
+			transform: translateX(-411px) !important;
+		}
+	
+		&__tree2 {
+			margin: 0px auto;
+			top: unset;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			transform: translateX(411px) !important;
+		}
+
+		&__grass {
+			width: auto;
+			max-width: unset !important;
+			bottom: -90px;
+			left: 0px;
+			right: 0px;
+			margin: 0px auto;
+		}
+
+		&__grassBlock {
+			bottom: 0px;
+			width: 100px;
+			margin: 115px;
+		}
+	}
+
+	@media(min-width: $maxTabletWidth) {
+		&__tree {
+			transform: translateX(-661px) !important;
+		}
+	
+		&__tree2 {
+			transform: translateX(661px) !important;
+		}
+
+		&__grass {
+			bottom: -310px;
+		}
 	}
 }

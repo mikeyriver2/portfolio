@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import { ReactComponent as Cloud } from './assets/images/Cloud.svg';
 import { ReactComponent as Solo } from './assets/images/Dog.svg'; 
 import { ReactComponent as SoloText } from './assets/images/ImSolo.svg'; 
 import { ReactComponent as ScrollDown } from './assets/images/ScrollDown.svg'; 
-import { ReactComponent as CloudTablet } from './assets/images/Cloud_Tablet.svg';
 
 import Download from './assets/images/Download.svg';
 import Trumpet from './assets/images/Trumpet.png';
 import Curve from './assets/images/Curve.svg';
 import CurveTablet from './assets/images/Curve_Tablet.svg';
+import CurveDesktop from './assets/images/Curve_Desktop.svg';
 import Block from './assets/images/Block.png';
+import Bloop1 from './assets/images/Bloop1.png';
+import Bloop2 from './assets/images/Bloop2.png';
+
 import DP from './assets/images/DP.jpg';
 
 import CustomButton from './reusables/CustomButton/CustomButton';
@@ -22,9 +24,11 @@ import Mc from './reusables/MC/Mc';
 
 import {
   visibilityHandler as handler,
-  checkIfMobile
+  checkIfMobile,
+  checkIfDesktop,
 } from './helper';
 import './App.scss';
+import Clouds from './reusables/Clouds/Clouds';
 
 
 function App() {
@@ -86,8 +90,10 @@ function App() {
                 background: `url('${DP}')`
               }}
             />
-            <h2>Hello! Thank you for stopping by</h2>
-            <p>Mauris non arcu tellus etiam vivamus augue magna nunc, rhoncus. Mauris odio massa quis vitae urna tincidunt vel. Risus eget nibh quis sit nascetur nisi.</p>
+            <div>
+              <h2>Hello! Thank you for stopping by</h2>
+              <p>Mauris non arcu tellus etiam vivamus augue magna nunc, rhoncus. Mauris odio massa quis vitae urna tincidunt vel. Risus eget nibh quis sit nascetur nisi.</p>
+            </div>
           </div>
           { !checkIfMobile() && <ScrollDown /> }
         </section>
@@ -97,7 +103,7 @@ function App() {
         classNames="mikeyriver__basic__animation"
       >
         <section className="mikeyriver__basic">
-          { checkIfMobile() ? <Cloud /> : <CloudTablet /> }
+          <Clouds />
           <div>
               <img src={Block} />
               <h1>IT BEGAN WITH MINECRAFT</h1>
@@ -107,8 +113,8 @@ function App() {
               <p>
                 Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
               </p>
-              { !checkIfMobile() && <Mc /> }
           </div>
+          { !checkIfMobile() && <Mc /> }
         </section>
       </CSSTransition>
       <CSSTransition
@@ -120,7 +126,15 @@ function App() {
           {/** Dunno why but cannot import this particular svg file as SVG component */}
           <img
             className="mikeyriver__music__divider"
-            src={checkIfMobile() ? Curve : CurveTablet} 
+            src={checkIfMobile() ? Curve : checkIfDesktop() ? CurveDesktop : CurveTablet} 
+          />
+          <img
+            className="mikeyriver__music__bloop"
+            src={Bloop1}
+          />
+          <img
+            className="mikeyriver__music__bloop"
+            src={Bloop2}
           />
           <div>
               <img src={Trumpet} />

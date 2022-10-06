@@ -5,6 +5,14 @@ export function checkIfMobile() {
     return innerWidth <= 490 && innerHeight < 1024; // && innerWidth <= 820;
 }
 
+export function checkIfDesktop() {
+    const { innerWidth } = window;
+
+    // anything considered bigger than this will be tablet and greater
+    console.log(innerWidth)
+    return innerWidth > 1280; // && innerWidth <= 820;
+}
+
 export async function visibilityHandler(e) {
     const navDom = document.querySelector('.mikeyriver__nav');
     const basicDom = document.querySelector('.mikeyriver__basic');
