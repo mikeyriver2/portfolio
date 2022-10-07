@@ -73,7 +73,7 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
     & > div {
       @include container-padding;
       &:first-of-type {
-        height: 100vh;
+        min-height: 100vh;
 
         @include flex-cAlign;
         flex-direction: column;
@@ -82,8 +82,9 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
         & > svg {
           width: 60%;
           height: auto;
-          position: absolute;
-          bottom: 30px;
+          margin-top: 10vh;
+          // position: absolute;
+          // bottom: 30px;
         }
       }
       &:nth-of-type(2) {
@@ -200,11 +201,12 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
         transform: translateY(20px);
       }
       & > div:first-child {
-        height: unset;
+        min-height: unset;
       } 
     }
 
     &__basic {
+      min-height: 1030px !important;
       position: relative;
       & > div {
         p { padding: 0px 5vw; }
@@ -216,6 +218,12 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
       .customForm {
         max-width: 550px;
         margin: 0 auto;
+      }
+    }
+
+    &__music {
+      &__divider {
+        top: -10vw;
       }
     }
   }
@@ -252,7 +260,6 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
     }
 
     &__basic {
-      min-height: 1030px !important;
       position: relative;
     }
 
@@ -269,9 +276,14 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
           
         }
       }
+    }
+  }
+
+  @media(min-width: 1280px) {
+    &__music {
       &__divider {
         top: -80px;
-      }
+      } 
     }
   }
 }

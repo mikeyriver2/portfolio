@@ -75,7 +75,7 @@
 		}
 	}
 
-	@media(min-width: $maxTabletWidth) {
+	@media(min-width: 1280px) {
 		&__tree {
 			transform: translateX(-661px) !important;
 		}

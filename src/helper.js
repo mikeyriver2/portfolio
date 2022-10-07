@@ -9,7 +9,6 @@ export function checkIfDesktop() {
     const { innerWidth } = window;
 
     // anything considered bigger than this will be tablet and greater
-    console.log(innerWidth)
     return innerWidth > 1280; // && innerWidth <= 820;
 }
 

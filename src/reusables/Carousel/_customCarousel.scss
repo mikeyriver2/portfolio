@@ -36,5 +36,8 @@
 
   @media (min-width: $maxTabletWidth) {
     left: $leftOffsetNonTablet;
+    &__item {
+      padding: 0px 80px;
+    }
   }
 }
