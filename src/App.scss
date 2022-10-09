@@ -34,6 +34,7 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
 @import './reusables/Carousel/customCarousel.scss';
 @import './reusables/Form/customForm.scss';
 @import './reusables/Clouds/clouds.scss';
+@import './reusables/Solo/solo.scss';
 @import './reusables/Mc/mc.scss';
 
 .mikeyriver {
@@ -73,6 +74,9 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
     & > div {
       @include container-padding;
       &:first-of-type {
+        h1 {
+          margin-top: 0px;
+        }
         min-height: 100vh;
 
         @include flex-cAlign;
@@ -117,6 +121,7 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
         &:not(:first-of-type) {
           margin-top: 55px;
         }
+        cursor: pointer;
         text-decoration: underline;
         color: $green;
         font-weight: bold;

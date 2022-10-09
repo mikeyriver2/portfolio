@@ -12,7 +12,7 @@ export function checkIfDesktop() {
     return innerWidth > 1280; // && innerWidth <= 820;
 }
 
-export async function visibilityHandler(e) {
+export async function visibilityHandler() {
     const navDom = document.querySelector('.mikeyriver__nav');
     const basicDom = document.querySelector('.mikeyriver__basic');
     const musicDom = document.querySelector('.mikeyriver__music');

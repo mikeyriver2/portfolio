@@ -20,6 +20,7 @@ import CustomButton from './reusables/CustomButton/CustomButton';
 import CustomCurve from './reusables/CustomCurve/CustomCurve';
 import CustomCarousel from './reusables/Carousel/CustomCarousel';
 import CustomForm from './reusables/Form/CustomForm';
+import Solo3d from './reusables/Solo/Solo';
 import Mc from './reusables/MC/Mc';
 
 import {
@@ -41,12 +42,14 @@ function App() {
   });
 
   const handleVisibility = async (e) => {
-    const visibilities = await handler(e);
+    const visibilities = await handler();
     setDomVisibility(visibilities);
   };
 
   useEffect(() => {
     const { addEventListener, attachEvent } = window;
+  
+    handleVisibility();
   
     // add listener for window
     if (addEventListener) {
@@ -62,8 +65,19 @@ function App() {
   }
   }, []);
 
+  const scrollToDom = (identifier) => {
+    document.querySelector(identifier).scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
+  };
+
   return (
     <div className="mikeyriver">
+      <Solo3d
+        still={false}
+        show={(domVisibility.basic || domVisibility.music)}
+      />
       <CSSTransition
         in={domVisibility.nav}
         classNames="mikeyriver__nav__animation"
@@ -73,13 +87,24 @@ function App() {
           <div>
             <div className="mikeyriver__nav__dog">
               <SoloText />
-              <Solo />
+              {/* <Solo /> */}
+              {domVisibility.nav &&
+                <Solo3d
+                  still={true}
+                />
+              }
             </div>
             <h1>MIKEY RIVERA</h1>
             <ul> 
-              <li>About Me</li>
-              <li>My Resume</li>
-              <li>Contact Me</li>
+              <li onClick={() => {
+                scrollToDom('.mikeyriver__basic')
+              }}>About Me</li>
+              <li onClick={() => {
+                scrollToDom('.mikeyriver__resume')
+              }}>My Resume</li>
+              <li onClick={() => {
+                scrollToDom('.mikeyriver__form')
+              }}>Contact Me</li>
             </ul>
             { checkIfMobile() && <ScrollDown /> }
           </div>
