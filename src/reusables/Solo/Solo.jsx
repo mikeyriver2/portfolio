@@ -139,14 +139,64 @@ function Solo({ still, show }) {
     	vehicle.steering.add(seekBehavior);
 		}
 
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+
+    window.addEventListener('mousemove', (e) => {
+      if (dog) {
+        // wolf click event
+        const mouse = new THREE.Vector2();
+        mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
+        mouse.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
+
+        raycaster.setFromCamera( mouse, camera );
+        const intersects = raycaster.intersectObject(dog.scene, true);
+        if (intersects.length > 0) {
+          document.body.style.cursor = 'pointer' 
+        } else {
+          document.body.style.cursor = 'default'
+        }
+      }
+    });
+
+    window.addEventListener('mousedown', (e) => {
+      if (dog) {
+        // wolf click event
+        const mouse = new THREE.Vector2();
+        mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
+        mouse.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
+
+        raycaster.setFromCamera( mouse, camera );
+        const intersects = raycaster.intersectObject(dog.scene, true);
+        if (intersects.length > 0) {
+          document.body.style.cursor = 'pointer' 
+          const clips = dog.animations;
+
+          const clip = THREE.AnimationClip.findByName(clips, 'interact_takeoff')
+          mixer.stopAllAction()
+          const action = mixer.clipAction(clip);
+          // pause at last animation frame
+          action.clampWhenFinished = true;
+          action.setLoop( THREE.LoopOnce );
+
+          action.play();
+
+          // put behind after animation finish
+          setTimeout(() => {
+            threeDom.current.style.display = 'none';
+            threeDom.current.style.zIndex = -1
+          },5000);
+        }
+      }
+    });
+
     setInterval(() => {
-      const raycaster = new THREE.Raycaster();
-      const pointer = new THREE.Vector2();
+      // tracker interval
       const latestCoordinate = mousePositionArray.current.pop();
       pointer.set(latestCoordinate.x, latestCoordinate.y);
     
       raycaster.setFromCamera( pointer, camera );
-      const intersects = raycaster.intersectObjects( scene.children );
+      const intersects = raycaster.intersectObjects(scene.children);
       for ( let i = 0; i < intersects.length; i ++ ) {
 
         if (intersects[i].object.name === 'name') {
