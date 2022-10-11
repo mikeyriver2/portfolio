@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import * as YUKA from 'yuka';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-function Solo({ still, show }) {
+function Solo({ still, show, isMobile }) {
   const threeDom = useRef(null);
   const mousePosition = useRef({
     x: 0,
@@ -63,7 +64,7 @@ function Solo({ still, show }) {
     if (!still) {
       camera.position.set(0, 0, 7) // same as ^
     } else {
-      camera.position.set(0, .5, 2.2) // same as ^
+      camera.position.set(0, .8, 1.9) // same as ^
     }
     // orbit.update(); // must be called everytime camera changes
 
@@ -185,6 +186,9 @@ function Solo({ still, show }) {
           setTimeout(() => {
             threeDom.current.style.display = 'none';
             threeDom.current.style.zIndex = -1
+
+            document.querySelector('.solo__p').style.display = 'none';
+            document.querySelector('.solo__p').style.zIndex = -1;
           },5000);
         }
       }
@@ -193,22 +197,23 @@ function Solo({ still, show }) {
     setInterval(() => {
       // tracker interval
       const latestCoordinate = mousePositionArray.current.pop();
-      pointer.set(latestCoordinate.x, latestCoordinate.y);
-    
-      raycaster.setFromCamera( pointer, camera );
-      const intersects = raycaster.intersectObjects(scene.children);
-      for ( let i = 0; i < intersects.length; i ++ ) {
+      if (latestCoordinate) {
+        pointer.set(latestCoordinate.x, latestCoordinate.y);
+      
+        raycaster.setFromCamera( pointer, camera );
+        const intersects = raycaster.intersectObjects(scene.children);
+        for ( let i = 0; i < intersects.length; i ++ ) {
 
-        if (intersects[i].object.name === 'name') {
-          target.position.set(
-            intersects[i].point.x,
-            intersects[i].point.y,
-            0
-          );
+          if (intersects[i].object.name === 'name') {
+            target.position.set(
+              intersects[i].point.x,
+              intersects[i].point.y,
+              0
+            );
+          }
         }
       }
-    
-    }, 1000);
+    }, 500);
   
     vehicle.position.set(-2, 0, 0);
 
@@ -247,8 +252,26 @@ function Solo({ still, show }) {
   }, []);
 
   return (
-    <div ref={threeDom} className={`solo${still ? `--still` : `${show ? ' show' : ''}`}`} />
+    <>
+      <div ref={threeDom} className={`solo${still ? `--still` : `${show ? ' show' : ''}`}`} />
+      <p className={`solo__p${show ? ' show' : ''}`}>
+        Solo will follow {isMobile ? 'wherever you tap' : 'your mouse'} because he loves people!
+        Click on him if you want him to go back home.
+      </p>
+    </>
   );
+}
+
+Solo.propTypes = {
+  still: PropTypes.bool,
+  show: PropTypes.bool,
+  isMobile: PropTypes.bool,
+}
+
+Solo.defaultProps = {
+  still: false,
+  show: false,
+  isMobile: false
 }
 
 export default Solo;

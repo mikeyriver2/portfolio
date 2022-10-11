@@ -53,3 +53,14 @@ export async function isElementInViewport (e) {
     return toReturn;
 }
 
+export function checkAllImagesLoaded() {
+    let returnBool = true;
+    const images = document.querySelectorAll('img');
+    images.forEach((image) => {
+        const bool = (image.complete && image.naturalHeight !== 0);
+        
+        if (!bool) returnBool = bool;
+    });
+
+    return returnBool;
+}
