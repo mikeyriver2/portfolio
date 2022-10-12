@@ -35,7 +35,7 @@ const CustomCarousel = ({
 		{
 			image: 'https://i.imgur.com/TT2Itmr.png',
 			header: 'Pediatrix - Private EMR',
-			description: 'Developed an Electronic Medical Record for use of private medical businesses.',
+			description: 'Developed an Electronic Medical Record for use of private medical businesses. It allows doctors to track in/out patient records and payments. Figma was designed by a UX designer and implemented by me.',
 			button: {
 				text: 'View Figma',
 				url: 'https://www.figma.com/file/OYTdzxdQ9EVdsMC0v7aNTM/PEDIATRIX_UI-V.1-(MOBILE)?node-id=0%3A1'

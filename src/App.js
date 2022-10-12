@@ -81,12 +81,12 @@ function App() {
       {!imagesLoaded
         ? <Loading />
         : <>
-          {/* <Solo3d
+          <Solo3d
             still={false}
             // I want nav to not show for solo to show
             isMobile={checkIfMobile()}
             show={(domVisibility.basic || domVisibility.music) && !domVisibility.nav}
-          /> */}
+          />
           <CSSTransition
             in={domVisibility.nav}
             classNames="mikeyriver__nav__animation"
@@ -124,8 +124,11 @@ function App() {
                 <div>
                   <h2>Hello! Thank you for stopping by</h2>
                   <p>
-                    I am Management Information Systems graduate from the Ateoneo de Manila currently working in Shopee as a full stack developer.
-                    I enjoy working in both front and back end aspects of systems and software developement!
+                    I am a Management Information Systems graduate from the Ateneo de Manila University, currently working in Shopee as a full stack developer.
+                    I have extensive experience in software engineering and I truly enjoy working in both its front and back end aspects - from planning all the way to maintenance!
+                  </p>
+                  <p>
+                    The pixel dog you see is dedicated to Solo, my favorite and the best boyo in the whole world! (rip)
                   </p>
                 </div>
               </div>
@@ -149,9 +152,9 @@ function App() {
                   </p>
                   <br />
                   <p>
-                    Unbeknownst  to me, the server would end up garnering traction from players from all over the world and it became a 
-                    passion project for me. Not only did I learn some linux scripts, I ended up making friends along the
-                    way, some lunch money in the side, and even learned a bit of Java to create plugins for the server. It was through minecraft that I realized 
+                    Unbeknownst  to me, the server would end up garnering traction players from all over the world and it became a 
+                    passion project of mine. Not only did I learn some linux scripts, I ended up making friends along the
+                    way, got some lunch money in the side, and even learned a bit of Java to create plugins for the server. It was through minecraft that I realized 
                     I wanted to explore the tech industry and create projects and tools that others would enjoy using. 
                   </p>
                   <p>
@@ -187,15 +190,15 @@ function App() {
                     I have a taste for <i>tito</i> tunes
                   </h2>
                   <p>
-                    Another surprised to myself during my still-in-school-days was me joining an orchestra in college, and
-                    I ended up playing tenor saxophone and trumpet with them for 4 years. In
+                    Another surprise to myself during my still-in-school-days was me joining an orchestra in college.
+                    I ended up playing tenor saxophone and trumpet with them for 4 years, and in
                     spite of the sleepness nights balancing practicing my instruments, allotting time for rehearsals,
                     and studying for my academics, I would not have had my college experience any other way!
                   </p>
                   <br />
                   <p>
                     I enjoy all forms of music in general, but jazz has a special place in my heart. It is a genre that requires
-                    a lot of improvisation, and I guess like in my field of work, you have to learn how to go outside the box and explore
+                    a lot of improvisation, and similar to my field of work, you have to learn how to go outside the box and explore
                     new ways to create something beautiful.
                   </p>
               </div>
@@ -233,6 +236,9 @@ function App() {
           </CSSTransition>
           <section className="mikeyriver__form">
             <CustomForm />
+            <p style={{fontSize: '.8em', color: 'white', marginTop: '40px'}}>
+              Site designed with the help of Valerie Cobankiat
+            </p>
           </section>
         </>
       }
