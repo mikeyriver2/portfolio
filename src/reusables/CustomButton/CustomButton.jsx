@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CustomButton = ({ children, image }) => {
+const CustomButton = ({ children, image, onClick }) => {
 	return (
 		<div className="customButton">
-			<button>
+			<button onClick={onClick}>
 				{ image && <img src={image} /> }
 				{ children }
 			</button>
@@ -13,11 +13,13 @@ const CustomButton = ({ children, image }) => {
 };
 
 CustomButton.propTypes = {
+	onClick: PropTypes.func,
 	children: PropTypes.node.isRequired,
 	image: PropTypes.string
 };
 
 CustomButton.defaultProps = {
+	onClick: () => {},
 	image: ''
 }
 

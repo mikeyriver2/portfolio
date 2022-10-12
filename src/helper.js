@@ -45,8 +45,9 @@ export async function isElementInViewport (e) {
             root: null,
             threshold: 0.1, // set offset 0.1 means trigger if atleast 10% of element in viewport
         })
-    
-        observer.observe(e);
+        if (e) {
+            observer.observe(e);
+        }
     });
     
     const toReturn = await observerPromise; 

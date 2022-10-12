@@ -50,10 +50,11 @@ function App() {
   };
 
   useEffect(() => {
+    // force show loading icon first hue
     setInterval(() => {
       setImagesLoaded(checkAllImagesLoaded());
       handleVisibility();
-    }, 200);
+    }, 500);  
     
     const { addEventListener, attachEvent } = window;
     
@@ -80,12 +81,12 @@ function App() {
       {!imagesLoaded
         ? <Loading />
         : <>
-          <Solo3d
+          {/* <Solo3d
             still={false}
             // I want nav to not show for solo to show
             isMobile={checkIfMobile()}
             show={(domVisibility.basic || domVisibility.music) && !domVisibility.nav}
-          />
+          /> */}
           <CSSTransition
             in={domVisibility.nav}
             classNames="mikeyriver__nav__animation"
@@ -95,18 +96,15 @@ function App() {
               <div>
                 <div className="mikeyriver__nav__dog">
                   <SoloText />
-                  {/* <Solo /> */}
-                  {domVisibility.nav &&
-                    <Solo3d
-                      still={true}
-                    />
-                  }
+                  <Solo3d
+                    still={true}
+                  />
                 </div>
                 <h1>MIKEY RIVERA</h1>
                 <ul> 
                   <li onClick={() => {
                     scrollToDom('.mikeyriver__basic')
-                  }}>About Me</li>
+                  }}>Random Facts About Me</li>
                   <li onClick={() => {
                     scrollToDom('.mikeyriver__resume')
                   }}>My Resume</li>
@@ -125,7 +123,10 @@ function App() {
                 />
                 <div>
                   <h2>Hello! Thank you for stopping by</h2>
-                  <p>Mauris non arcu tellus etiam vivamus augue magna nunc, rhoncus. Mauris odio massa quis vitae urna tincidunt vel. Risus eget nibh quis sit nascetur nisi.</p>
+                  <p>
+                    I am Management Information Systems graduate from the Ateoneo de Manila currently working in Shopee as a full stack developer.
+                    I enjoy working in both front and back end aspects of systems and software developement!
+                  </p>
                 </div>
               </div>
               { !checkIfMobile() && <ScrollDown /> }
@@ -139,12 +140,22 @@ function App() {
               <Clouds />
               <div>
                   <img src={Block} />
-                  <h1>IT BEGAN WITH MINECRAFT</h1>
+                  <h1>MY TECH CAREER BEGAN WITH MINECRAFT</h1>
                   <p>
-                    Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+                    During my high school days, my cousins and I had our own little minecraft server.
+                    It was hosted on my family's desktop computer, so I was not allowed to keep it open 24/7.
+                    I then rented the cheapest Virtual Private Server that I could afford at that time, and I 
+                    learned the basics of Ubuntu in order to get the server up and running constantly. 
+                  </p>
+                  <br />
+                  <p>
+                    Unbeknownst  to me, the server would end up garnering traction from players from all over the world and it became a 
+                    passion project for me. Not only did I learn some linux scripts, I ended up making friends along the
+                    way, some lunch money in the side, and even learned a bit of Java to create plugins for the server. It was through minecraft that I realized 
+                    I wanted to explore the tech industry and create projects and tools that others would enjoy using. 
                   </p>
                   <p>
-                    Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+                    
                   </p>
               </div>
               { !checkIfMobile() && <Mc /> }
@@ -173,10 +184,19 @@ function App() {
                   <img src={Trumpet} />
                   <h1>PASSION FOR MUSIC</h1>
                   <h2>
-                    I have a taste for tito tunes
+                    I have a taste for <i>tito</i> tunes
                   </h2>
                   <p>
-                    Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+                    Another surprised to myself during my still-in-school-days was me joining an orchestra in college, and
+                    I ended up playing tenor saxophone and trumpet with them for 4 years. In
+                    spite of the sleepness nights balancing practicing my instruments, allotting time for rehearsals,
+                    and studying for my academics, I would not have had my college experience any other way!
+                  </p>
+                  <br />
+                  <p>
+                    I enjoy all forms of music in general, but jazz has a special place in my heart. It is a genre that requires
+                    a lot of improvisation, and I guess like in my field of work, you have to learn how to go outside the box and explore
+                    new ways to create something beautiful.
                   </p>
               </div>
             </section>
@@ -190,15 +210,21 @@ function App() {
               <CustomCurve />
               <h1>MY RESUME AND PORTFOLIO</h1>
               <p>
-                Tristique vitae sapien, varius tortor, cursus enim. Quam sem netus id at adipiscing aliquet metus facilisi. Senectus magna condimentum et, purus.
+                Listed below are my resume and some projects of mine. Feel free to look through them and if you have any comments/suggestions,
+                do not hesitate to let me know by filling the form at the bottom :>
               </p>
+              <p>You can also view my github profile <a href="https://github.com/mikeyriver2">here</a></p>
               <CustomButton
                 image={Download}
+                onClick={() => {
+                  window.open(
+                    "https://drive.google.com/file/d/18PJSGziAIveIQysE4ACu1Ug_G4uADjnH/view?usp=sharing", "_blank");
+                }}
               >
                 RESUME
               </CustomButton>
 
-              <h2>Some of my works</h2>
+              <h2>Some of my notable personal works</h2>
 
               <CustomCarousel
                 isMobile={checkIfMobile()}

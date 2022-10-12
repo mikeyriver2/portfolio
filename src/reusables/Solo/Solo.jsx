@@ -6,14 +6,20 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 function Solo({ still, show, isMobile }) {
+  // using this for event listener
+  const showRef = useRef(show);
+
+  const mousePositionArray = useRef([]);
   const threeDom = useRef(null);
   const mousePosition = useRef({
     x: 0,
     y: 0
   });
 
-  const mousePositionArray = useRef([]);
-  
+  useEffect(() => {
+    showRef.current = show;
+  }, [show]);  
+
   useEffect(() => {
     if (!still) {
       document.body.onmousemove = function(e){
@@ -144,7 +150,7 @@ function Solo({ still, show, isMobile }) {
     const pointer = new THREE.Vector2();
 
     window.addEventListener('mousemove', (e) => {
-      if (dog) {
+      if (dog && showRef.current) {
         // wolf click event
         const mouse = new THREE.Vector2();
         mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
@@ -161,7 +167,7 @@ function Solo({ still, show, isMobile }) {
     });
 
     window.addEventListener('mousedown', (e) => {
-      if (dog) {
+      if (dog && !still) {
         // wolf click event
         const mouse = new THREE.Vector2();
         mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
