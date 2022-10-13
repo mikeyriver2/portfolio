@@ -57,6 +57,8 @@ const CustomCarousel = ({
 				centerMode={!isMobile}
 				centerSlidePercentage={50}
 				infiniteLoop
+				autoPlay
+				interval={2000}
 				showThumbs={false} 
 			>
 				{

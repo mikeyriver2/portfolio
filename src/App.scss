@@ -46,6 +46,16 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
   max-width: $maxTabletWidth;
   margin: 0 auto;
 
+  &:not(.loaded) > *:not(.lds-ripple) {
+    display: none;
+  }
+
+  &.loaded {
+    .lds-ripple {
+      display: none;
+    }
+  }
+
   section { 
     text-align: center;
     min-height: 80vh;
