@@ -60,7 +60,7 @@ function App() {
       if (addEventListener) {
         addEventListener('scroll', handleVisibility, false);
         addEventListener('resize', handleVisibility, false);
-        window.matchMedia("(orientation: portrait)").addEventListener("change", handleVisibility, false);
+        addEventListener("orientationchange", handleVisibility, false);
       } else if (window.attachEvent)  {
         attachEvent('onscroll', handleVisibility);
         attachEvent('onresize', handleVisibility);
@@ -75,10 +75,10 @@ function App() {
     }, 500);  
   }, []);
 
-  const scrollToDom = (identifier) => {
+  const scrollToDom = (identifier, block = 'center') => {
     document.querySelector(identifier).scrollIntoView({
       behavior: 'smooth',
-      block: 'center',
+      block,
     });
   };
 
@@ -109,7 +109,7 @@ function App() {
                 scrollToDom('.mikeyriver__basic')
               }}>Random Facts About Me</li>
               <li onClick={() => {
-                scrollToDom('.mikeyriver__resume')
+                scrollToDom('.mikeyriver__resume', 'start')
               }}>My Resume</li>
               <li onClick={() => {
                 scrollToDom('.mikeyriver__form')
