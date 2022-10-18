@@ -225,7 +225,7 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
       min-height: 1200px !important;
       position: relative;
       & > div {
-        p { padding: 0px 100px; }
+        p { padding: 0px 30px; }
       }
     }
 
@@ -277,6 +277,9 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
 
     &__basic {
       position: relative;
+      & > div {
+        p { padding: 0px 80px; }
+      }
     }
 
     &__music {
