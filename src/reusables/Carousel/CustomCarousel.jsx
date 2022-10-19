@@ -15,6 +15,29 @@ const CustomCarousel = ({
 }) => {
 	const projects = [
 		{
+			image: 'https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/ca5d12864c12916c05640b36e47ac5c9.png',
+			header: 'Shopee',
+		description: `
+			Official role as a front end developer but regularly performs full stack development under
+			Business Technologies, and constantly on the look out for new technologies to streamline development and work processes.
+		`,
+			button: {
+				text: 'View Site',
+				url: 'https://shopee.ph'
+			}
+		},
+		{
+			image: 'https://storage.googleapis.com/studio-design-asset-files/projects/9YWy0wVYaM/s-1522x951_v-fms_webp_1a08f022-c60f-4ea3-8c17-5467c536a254_middle.webp',
+			header: 'Hackazouk',
+		description: `
+			Full stack developer for the flagship product https://official-alumni.com/ . Delved heavily on both front end and back end aspects of the development life cycle of our product.
+		`,
+			button: {
+				text: 'View Site',
+				url: 'https://www.hackazouk.com/'
+			}
+		},
+		{
 			image: 'https://i.imgur.com/r2iV5Xj.png',
 			header: 'Audiohub.ph',
 			description: 'A waterfall based freelance project where I developed an ecommerce system from the ground up - both front end and back end - both customer and seller side',
@@ -33,7 +56,7 @@ const CustomCarousel = ({
 			}
 		},
 		{
-			image: 'https://i.imgur.com/TT2Itmr.png',
+			image: 'https://i.imgur.com/Hg6bFmm.png',
 			header: 'Pediatrix - Private EMR',
 			description: 'Developed an Electronic Medical Record for use of private medical businesses. It allows doctors to track in/out patient records and payments. Figma was designed by a UX designer and implemented by me.',
 			button: {
@@ -57,7 +80,8 @@ const CustomCarousel = ({
 			<div
 				className="customCarousel__item__img"
 				style={{
-					background: `url(${image})`
+					backgroundImage: `url(${image})`,
+					backgroundPosition: 'center'
 				}}
 			/>
 			<h3>{header}</h3>

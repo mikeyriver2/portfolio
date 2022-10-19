@@ -5,7 +5,7 @@ import { ReactComponent as Solo } from './assets/images/Dog.svg';
 import { ReactComponent as SoloText } from './assets/images/ImSolo.svg'; 
 import { ReactComponent as ScrollDown } from './assets/images/ScrollDown.svg'; 
 
-import Download from './assets/images/Download.svg';
+import Link from './assets/images/Link.svg'
 import Trumpet from './assets/images/Trumpet.png';
 import Curve from './assets/images/Curve.svg';
 import CurveTablet from './assets/images/Curve_Tablet.svg';
@@ -214,23 +214,27 @@ function App() {
       >
         <section className="mikeyriver__resume">
           <CustomCurve />
-          <h1>MY RESUME AND PORTFOLIO</h1>
+          <h1>MY EXPERIENCES & PORTFOLIO</h1>
           <p>
             Listed below are my resume and some projects. Feel free to look through them! If you have any comments/suggestions,
             do not hesitate to let me know by filling the form at the bottom. 
-            You can also view my github profile <a href="https://github.com/mikeyriver2">here</a>
+            You can also view my github profile below.
+          </p>
+          <p>
+            If you would like a copy of my resume, feel free to request a copy from me using the
+            form below :)
           </p>
           <CustomButton
-            image={Download}
+            image={Link}
             onClick={() => {
               window.open(
-                "https://drive.google.com/file/d/1_VYaBRYFnvStRLmSlW5g1PTKc-PKYkjs/view?usp=sharing", "_blank");
+                "https://github.com/mikeyriver2", "_blank");
             }}
           >
-            RESUME
+            GITHUB
           </CustomButton>
 
-          <h2>Some of my notable personal works</h2>
+          <h2>Some of my notable works</h2>
 
           <CustomCarousel
             isMobile={checkIfMobile()}
