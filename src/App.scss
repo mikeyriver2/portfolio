@@ -58,7 +58,7 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
 
   section { 
     text-align: center;
-    min-height: 80vh;
+    min-height: 100vh;
     & > svg {
       width: 100%;
     }
