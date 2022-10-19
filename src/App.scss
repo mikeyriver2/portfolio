@@ -189,7 +189,7 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
     position: relative;
     @include container-padding;
     padding: 0px 20px 30px 20px;
-    min-height: 1024px !important; 
+    min-height: 1095px !important; 
   
     & > h1 {
       margin-top: 10px;
