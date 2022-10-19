@@ -85,12 +85,12 @@ function App() {
   return (
     <div className={`mikeyriver ${imagesLoaded ? 'loaded' : ''}`}>
       <Loading />
-      <Solo3d
+      {/* <Solo3d
         still={false}
         // I want nav to not show for solo to show
         isMobile={checkIfMobile()}
         show={(domVisibility.basic || domVisibility.music) && !domVisibility.nav}
-      />
+      /> */}
       <CSSTransition
         in={domVisibility.nav}
         classNames="mikeyriver__nav__animation"

@@ -51,8 +51,31 @@ const CustomCarousel = ({
 			}
 		},
 	]
+
+	const projectsList = projects.map(({image, header, description, button: {text, url}}, i) => (
+		<div key={i} className="customCarousel__item">
+			<div
+				className="customCarousel__item__img"
+				style={{
+					background: `url(${image})`
+				}}
+			/>
+			<h3>{header}</h3>
+			<p>{description}</p>
+			<CustomButton
+				onClick={() => {
+					window.open(url, "_blank");
+				}}
+				image={Link}
+			>
+				{text}
+			</CustomButton>
+		</div>
+	));
+
 	return (
 		<div className="customCarousel">
+			{ projectsList }
 			<Carousel
 				centerMode={!isMobile}
 				centerSlidePercentage={50}
@@ -61,28 +84,7 @@ const CustomCarousel = ({
 				interval={2000}
 				showThumbs={false} 
 			>
-				{
-					projects.map(({image, header, description, button: {text, url}}, i) => (
-						<div key={i} className="customCarousel__item">
-							<div
-								className="customCarousel__item__img"
-								style={{
-									background: `url(${image})`
-								}}
-							/>
-							<h3>{header}</h3>
-							<p>{description}</p>
-							<CustomButton
-								onClick={() => {
-									window.open(url, "_blank");
-								}}
-								image={Link}
-							>
-								{text}
-							</CustomButton>
-						</div>
-					))
-				}
+				{ projectsList }
 			</Carousel>
 		</div>
 	);

@@ -163,7 +163,7 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
     position: relative;
     background: linear-gradient(180deg, #1A1A21 0%, #313063 100%);
     padding: 150px 0px 115px 0px;
-
+    
     &__divider {
       width: 100%;
       position: absolute;
@@ -199,6 +199,12 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
       font-weight: 700;
       font-size: 32px;
       margin-top: 80px;
+    }
+
+    .customCarousel {
+      & > .customCarousel__item {
+        display: none;
+      }
     }
   }
 
@@ -238,6 +244,7 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
     }
 
     &__music {
+      min-height: 80vh !important;
       &__divider {
         top: -10vw;
       }
@@ -303,6 +310,36 @@ $leftOffsetNonTablet: calc(-1*(100vw - (670px + 40px))/2);
       &__divider {
         top: -80px;
       } 
+    }
+
+    &__resume {
+      max-width: unset !important;
+      .customCurve {
+        left: 0 !important;
+        top: -81px !important;
+      }
+      & > h1, p, .customButton {
+        @include container-padding;
+      }
+      & > p {
+        margin: 30px auto;
+      }
+
+      .customCarousel {
+        left: unset;
+        position: relative !important;
+        width: auto;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        .carousel-root {
+          display: none;
+        }
+
+        &__item {
+          display: block !important;
+          padding: 30px 20px;
+        }
+      }
     }
   }
 
