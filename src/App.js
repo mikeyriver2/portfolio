@@ -110,7 +110,7 @@ function App() {
               }}>Random Facts About Me</li>
               <li onClick={() => {
                 scrollToDom('.mikeyriver__resume', 'start')
-              }}>My Resume</li>
+              }}>My Works</li>
               <li onClick={() => {
                 scrollToDom('.mikeyriver__form')
               }}>Contact Me</li>
