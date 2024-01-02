@@ -39,11 +39,11 @@ const CustomCarousel = ({
 		},
 		{
 			image: 'https://i.imgur.com/r2iV5Xj.png',
-			header: 'Audiohub.ph',
-			description: 'A waterfall based freelance project where I developed an ecommerce system from the ground up - both front end and back end - both customer and seller side',
+			header: '(Inactive) Audiohub.ph',
+			description: 'A waterfall based freelance project where I developed an ecommerce system from the ground up - both front end and back end - both customer and seller side. Site is currently inactive so I deployed the site instead to cloud run solely for sandbox purposes only.',
 			button: {
 				text: 'View Site',
-				url: 'https://audiohub.ph'
+				url: 'https://audiohub-wif2gfp45a-as.a.run.app'
 			}
 		},
 		{
